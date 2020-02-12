@@ -27,7 +27,7 @@ public class CheckLoot_Test {
 	@Before	
 	public void setUp() {
 	
-	Outils.SelectDriver();	
+	
 	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);	
 	driver.get("https://fr.wowhead.com/");
 	driver.manage().window().maximize();
