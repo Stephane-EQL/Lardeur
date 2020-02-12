@@ -11,15 +11,14 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PageAccueil {
 
-	@FindBy(xpath="/html/body/div[1]/div/div/div[2]/div[2]/button") 
+	@FindBy(xpath="//div[@class='as-oil-l-item initial-btn-wrapper']") 
 	WebElement cookies;
 	
 	@FindBy(name="q") 
 	WebElement name;
 	
 	
-	public void clickCookies (WebDriver driver) throws InterruptedException {
-	Thread.sleep(5000);
+	public void clickCookies (WebDriver driver) throws InterruptedException {	
 	cookies.click();			
 	}
 	
