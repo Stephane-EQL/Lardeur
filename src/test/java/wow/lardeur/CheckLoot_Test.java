@@ -23,8 +23,11 @@ public class CheckLoot_Test {
 	WebDriver driver = new ChromeDriver();
 	String recherche = "Lardeur";
 	
-	@Before
-	public void setUp() {	
+	
+	@Before	
+	public void setUp() {
+	
+	Outils.SelectDriver();	
 	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);	
 	driver.get("https://fr.wowhead.com/");
 	driver.manage().window().maximize();
@@ -41,10 +44,13 @@ public class CheckLoot_Test {
 		PagePNJ page_pnj = page_recherche.PNJClick(driver);
 		PageLoot page_loot = page_pnj.LootClick(driver);
 		
-		String listeObservee = page_loot.itemlist.getText();
-		System.out.println(listeObservee);
-		BufferedWriter listeO = new BufferedWriter(new FileWriter("ListeTxt.txt"));
-					
+		//String listeObservee = page_loot.itemlist.getText();
+		//System.out.println(listeObservee);
+		//BufferedWriter listeO = new BufferedWriter(new FileWriter("ListeTxt.txt"));
+		page_loot.collectLootStats(driver);
+		
+		
+		
 	}
 
 }
