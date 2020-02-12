@@ -20,14 +20,14 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CheckLoot_Test {
 
-	WebDriver driver = new ChromeDriver();
+	WebDriver driver; 
 	String recherche = "Lardeur";
 	
 	
 	@Before	
 	public void setUp() {
 	
-	
+	Outils.SelectDriver();
 	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);	
 	driver.get("https://fr.wowhead.com/");
 	driver.manage().window().maximize();

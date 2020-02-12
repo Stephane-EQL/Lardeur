@@ -18,6 +18,6 @@ public class Outils {
 			WebDriver driver = new ChromeDriver();
 		} else if (BROWSER.equals("Firefox")) {
 			WebDriver driver = new FirefoxDriver();
-		}
+		}		
 	}
 }
