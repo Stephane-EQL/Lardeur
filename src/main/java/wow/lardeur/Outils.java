@@ -10,14 +10,23 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Outils {
 
-	private static String BROWSER=System.getProperty("browser");
+	public static String BROWSER=System.getProperty("browser");
 
-	public static void SelectDriver () {
+	static WebDriver driver;
+	
+	public static WebDriver SelectDriver () {
 			
-		if (BROWSER.equals("Chrome")) {           
-			WebDriver driver = new ChromeDriver();
+		if (BROWSER.equals("Chrome")) {	
+			System.setProperty("webdriver.chromedriver", "/lardeur/src/drivers/chromedriver.exe");
+			driver = new ChromeDriver();
+			return driver;
 		} else if (BROWSER.equals("Firefox")) {
-			WebDriver driver = new FirefoxDriver();
-		}		
+			System.setProperty("webdriver.geckodriver", "/lardeur/src/drivers/geckodriver.exe");
+			driver = new FirefoxDriver();
+			return driver;
+		}
+		System.setProperty("webdriver.chromedriver", "/lardeur/src/drivers/chromedriver.exe");
+		driver = new ChromeDriver();
+		return driver;
 	}
 }
