@@ -19,7 +19,7 @@ public class PageAccueil {
 	
 	
 	public void clickCookies (WebDriver driver) throws InterruptedException {
-	Thread.sleep(3000);
+	Thread.sleep(5000);
 	cookies.click();			
 	}
 	

@@ -4,9 +4,10 @@ import java.awt.List;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
-
+import org.junit.Before;
 import org.junit.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -19,14 +20,19 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CheckLoot_Test {
 
+	WebDriver driver = new ChromeDriver();
 	String recherche = "Lardeur";
-		
+	
+	@Before
+	public void setUp() {	
+	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);	
+	driver.get("https://fr.wowhead.com/");
+	driver.manage().window().maximize();
+	}
+	
 	@Test
-	public void Cnx() throws InterruptedException, IOException {
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://fr.wowhead.com/");
-		driver.manage().window().maximize();
-		
+	public void Cnx() throws InterruptedException, IOException {		
+				
 		PageAccueil page_accueil = PageFactory.initElements(driver, PageAccueil.class);
 				
 		page_accueil.clickCookies(driver);		
@@ -38,8 +44,7 @@ public class CheckLoot_Test {
 		String listeObservee = page_loot.itemlist.getText();
 		System.out.println(listeObservee);
 		BufferedWriter listeO = new BufferedWriter(new FileWriter("ListeTxt.txt"));
-		
-			
+					
 	}
 
 }
